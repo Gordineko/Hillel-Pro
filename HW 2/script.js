@@ -6,7 +6,7 @@ function checkNumber(msg) {
   let result;
   do {
     result = prompt(msg);
-  } while (result === null || result === "" || Number.isNaN(+result));
+  } while (result === null || result.trim() === "" || Number.isNaN(+result));
   return result;
 }
 firstNumber = +checkNumber("Введите первое число");
