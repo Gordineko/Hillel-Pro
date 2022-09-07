@@ -12,24 +12,22 @@ function checkAction(msg) {
     case "-":
       quantities = +checkField("Cкольок чисел нужно ?");
       totalMin("Введите число");
-      return;
+      break;
 
     case "+":
       quantities = +checkField("Cкольок чисел нужно ?");
       totalSum("Введите число");
-
-      return;
+      break;
 
     case "*":
       quantities = +checkField("Cкольок чисел нужно ?");
       totalMultiplication("Введите число");
-
-      return;
+      break;
 
     case "/":
       quantities = +checkField("Cкольок чисел нужно ?");
       totalDivision("Введите число");
-      return;
+      break;
 
     default:
       return checkAction(msg);
