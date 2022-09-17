@@ -1,6 +1,4 @@
-function createCalculator() {
-  let a = 0;
-
+function createCalculator(a) {
   return {
     sum: (b) => (a += b),
     mult: (b) => (a -= b),
@@ -10,4 +8,4 @@ function createCalculator() {
   };
 }
 
-const calc = createCalculator();
+const calc = createCalculator(10);
