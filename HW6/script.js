@@ -26,7 +26,7 @@ const calculateStudentAverageMark = (student) =>
     (previousValue, currentValue) => previousValue + currentValue
   ) / student.marks.length;
 
-console.log(calculateStudentAverageMark(students[0]));
+console.log(calculateStudentAverageMark(students[2]));
 
 function calculateGroupAverageMark(students) {
   const marks = students.map((student) => student.marks).flat();
