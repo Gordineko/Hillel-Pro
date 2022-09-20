@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+.main {
+    height: 100vh;
+    background: #727272
+}
+
+.calculator {
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+    top: 50%;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.ansver {
+    text-align: center;
+}
+
+.operants {
+    display: flex;
+    flex-direction: column;
+    margin: 0 5px
+}
+
+input {
+    width: 50px;
+    height: 30px;
+
+}
+
+button {
+    border-radius: 10px 0 0 10px
+}
+
+select {
+    border-radius: 0 10px 10px 0;
+    border: none;
+}
