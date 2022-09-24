@@ -30,3 +30,26 @@ function checkAction() {
       return +fistInput.value / +secondInput.value;
   }
 }
+const listEl = document.querySelector(".do_list_element");
+const listBtn = document.querySelector(".list_btn");
+const operant = document.querySelector(".do");
+const icon = document.querySelector(".img");
+const inpBtn = document.querySelector(".input_btn");
+const list = document.querySelector(".list");
+
+function btnCheckMark() {
+  icon.classList.toggle("icon");
+}
+listBtn.addEventListener("click", btnCheckMark);
+
+function onBtnClick(event) {
+  event.preventDefault();
+  addList();
+}
+inpBtn.addEventListener("click", onBtnClick);
+
+function addList() {
+  const newDiv = listEl.cloneNode(true);
+  newDiv.textContent = operant.value;
+  document.querySelector(".list").append(newDiv);
+}
