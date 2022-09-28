@@ -30,19 +30,19 @@ function addPhoneList(contact) {
 function generateContEl({ name, surname, namber }) {
   const trEl = document.createElement("tr");
 
-  trEl.append(CreatPhoneList(name));
-  trEl.append(CreatPhoneList(surname));
-  trEl.append(CreatPhoneList(namber));
+  trEl.append(CreatPhoneList(name, "name"));
+  trEl.append(CreatPhoneList(surname, "surname"));
+  trEl.append(CreatPhoneList(namber, "namber"));
   trEl.append(createBtnClear(trEl));
-  // trEl.append(createBtnCorrect(trEl));
+  trEl.append(createBtnCorrect(trEl));
 
   return trEl;
 }
 
-function CreatPhoneList(value) {
+function CreatPhoneList(value, classes = "") {
   const tdEl = document.createElement("td");
   tdEl.textContent = value;
-
+  tdEl.className = classes;
   return tdEl;
 }
 
@@ -56,25 +56,28 @@ function createBtnClear(trEl) {
   btnEl.addEventListener("click", () => clearList(trEl));
   return btnEl;
 }
-// function createBtnCorrect(tdEl) {
-//   const btnEl = document.createElement("button");
-//   const image = document.createElement("img");
-//   image.src = "./free-icon-correction-4693121.png";
-//   btnEl.append(image);
-//   image.classList.add("icon_none");
-//   btnEl.classList.add("btn_clear_style");
-//   btnEl.addEventListener("click", () => remoovList(tdEl));
-//   return btnEl;
-// }
+function createBtnCorrect(tdEl) {
+  const btnEl = document.createElement("button");
+  const image = document.createElement("img");
+  image.src = "./free-icon-correction-4693121.png";
+  btnEl.append(image);
+  image.classList.add("icon_none");
+  btnEl.classList.add("btn_clear_style");
+  btnEl.addEventListener("click", () => editItem(tdEl));
+  return btnEl;
+}
 
 function clearList(trEl) {
   trEl.remove();
 }
-// function remoovList() {
-//   nameEl.value = "";
-//   surnameEl.value = "";
-//   namberEl.value = "";
-// }
+
+function editItem(tdEl) {
+  nameEl.value = tdEl.querySelector(".name").textContent;
+  surnameEl.value = tdEl.querySelector(".surname").textContent;
+  namberEl.value = tdEl.querySelector(".namber").textContent;
+
+  btnList.addEventListener("click", () => clearList(tdEl));
+}
 
 function returnInput() {
   nameEl.value = "";
