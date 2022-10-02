@@ -1,6 +1,4 @@
 function Calc(a = 0) {
-  this.a = a;
-  
   this.add = function (b) {
     return (a += b);
   };
