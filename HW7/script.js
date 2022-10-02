@@ -9,3 +9,6 @@ function createCalculator(a) {
 }
 
 const calc = createCalculator(10);
+this.test = () => {
+  console.log(this);
+};
