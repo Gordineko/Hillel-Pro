@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <header></header>
+    <main class="main">
+        <div class="list">
+            <div class="do_list_element">
+                <div class="content">
+                    <div class="text">
+                        To Do List
+                    </div>
+                </div>
+            </div>
+            <div class="list__inner">
+
+            </div>
+        </div>
+        <div class="entry">
+            <form action="">
+                <input type="text" class="do" placeholder="What?">
+                <button class="input_btn">send</button>
+            </form>
+        </div>
+    </main>
+
+    <footer></footer>
+    <script type="text/template" class="todoItemTemplate">
+        <div class="do_list" data-id="{{id}}">
+            <span>{{title}}</span>
+            <img src="./free-icon-check-mark-5290058.png" class='img {{isCheck}}' alt="">
+            <div class="todo_btn">
+                <button class="list_btn">Edit</button>
+                <button class="list_btn_clear">Delete</button>
+            </div>
+        </div>
+    </script>
+    <script src="./script.js" defer></script>
+</body>
+
+
+</html>
