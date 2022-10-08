@@ -38,15 +38,15 @@ function calculateGroupAverageMark(students) {
 }
 
 console.log(calculateGroupAverageMark(students));
-// function calculateStudentAverageMark(students) {
-//   let sum = students.marks[0];
-//   for (let i = 1; i < students.marks.length; i++) {
-//     sum += students.marks[i];
-//   }
-//   return sum / students.marks.length;
-// }
-// const a = calculateStudentAverageMark(students[0]);
-// console.log(a);
+function calculateStudentAverageMark(students) {
+  let sum = students.marks[0];
+  for (let i = 1; i < students.marks.length; i++) {
+    sum += students.marks[i];
+  }
+  return sum / students.marks.length;
+}
+const a = calculateStudentAverageMark(students[0]);
+console.log(a);
 
 // function  calculateStudentAverageMark(students) {
 //   let allSum = [];
