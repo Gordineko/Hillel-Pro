@@ -6,30 +6,28 @@ class Accordeon {
   }
 
   onBtnClick() {
-    const titles = this.el.querySelectorAll(".accordion-item");
-
-    titles.forEach((titleEl) => {
-      titleEl.addEventListener("click", (e) => {
-        const nextEl = e.target.nextElementSibling;
-        if (e.target.classList.contains("accordion-title")) {
-          if (nextEl.classList.contains("body_visible")) {
-            nextEl.classList.remove("body_visible");
-            nextEl.style.height = 0;
-          } else {
-            this.clearClass();
-            nextEl.classList.add("body_visible");
-            nextEl.style.height = nextEl.scrollHeight + "px";
-          }
-        }
-      });
+    this.el.addEventListener("click", (e) => {
+      if (!e.target.classList.contains("accordion-title")) return;
+      const nextEl = e.target.nextElementSibling;
+      if (nextEl.classList.contains("body_visible")) {
+        this.close(nextEl, 0);
+      } else {
+        this.clearClass();
+        nextEl.classList.add("body_visible");
+        this.setHeight(nextEl, nextEl.scrollHeight + "px");
+      }
     });
   }
-
+  close(elem, val) {
+    elem.classList.remove("body_visible");
+    this.setHeight(elem, val);
+  }
+  setHeight(elem, val) {
+    elem.style.height = val;
+  }
   clearClass() {
-    const bodyes = this.el.querySelectorAll(".accordion-body");
-    bodyes.forEach((bodyEl) => {
-      bodyEl.style.height = 0;
-      bodyEl.classList.remove("body_visible");
-    });
+    this.el
+      .querySelectorAll(".accordion-body")
+      .forEach((bodyEl) => this.close(bodyEl, 0));
   }
 }
