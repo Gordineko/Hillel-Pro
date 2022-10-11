@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Dangrek&display=swap');
+
+body {
+    background: rgb(59, 59, 59);
+    font-family: 'Dangrek', cursive;
+    color: rgb(31, 30, 30);
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    margin-top: -100px;
+    margin-right: -250px;
+    width: 500px;
+    -webkit-box-shadow: 0px 0px 300px 86px rgb(14, 150, 168);
+    -moz-box-shadow: 0px 0px 300px 86px rgb(14, 150, 168);
+    box-shadow: 0px 0px 300px 86px rgb(14, 150, 168);
+}
+
+.accordion-title, .accordion-body {
+    border: 1.2px solid rgb(31, 30, 30);
+
+
+}
+
+.accordion-title {
+    padding: 5px;
+}
+
+
+
+.accordion-body {
+    overflow: hidden;
+    transition: .5s height;
+    height: 0;
+
+}
+
+
+
+.accordion-item {
+    border: 1px solid rgb(14, 150, 168);
+    -webkit-box-shadow: 0px 0px 66px -1px rgb(14, 150, 168);
+    -moz-box-shadow: 0px 0px 66px -1px rgb(14, 150, 168);
+    box-shadow: 0px 0px 66px -1px rgb(14, 150, 168);
+
+
+}

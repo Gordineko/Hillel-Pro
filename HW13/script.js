@@ -1,12 +1,12 @@
-SMALL_SIZE = { price: 50, callories: 20 };
-MEDIUM_SIZE = { price: 75, callories: 30 };
-BIGER_SIZE = { price: 100, callories: 40 };
+const SMALL_SIZE = { price: 50, callories: 20 };
+const MEDIUM_SIZE = { price: 75, callories: 30 };
+const BIGER_SIZE = { price: 100, callories: 40 };
 
-TOPPING_CHEAZ = { price: 10, callories: 20 };
-TOPPING_SALAD = { price: 20, callories: 5 };
-TOPPING_POTATO = { price: 15, callories: 10 };
-TOPPING_SPICE = { price: 15, callories: 0 };
-TOPPING_MAYONNAISE = { price: 20, callories: 5 };
+const TOPPING_CHEAZ = { price: 10, callories: 20 };
+const TOPPING_SALAD = { price: 20, callories: 5 };
+const TOPPING_POTATO = { price: 15, callories: 10 };
+const TOPPING_SPICE = { price: 15, callories: 0 };
+const TOPPING_MAYONNAISE = { price: 20, callories: 5 };
 function Humburger(size) {
   valBurger(size);
   let arr = [size.price, size.callories];
