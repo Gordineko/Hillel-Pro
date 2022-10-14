@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Dangrek&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+.main {
+
+    background: #727272;
+    font-family: 'Dangrek', cursive;
+    padding: 50px 0;
+}
+
+.list {
+    margin-left: 20%;
+    width: 1000px;
+    margin-bottom: 40px;
+    border: 1px solid black;
+    border-radius: 40px 40px 0 0;
+}
+
+.do_list_element {
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 35px;
+    text-align: center;
+    border-top: 1px solid black;
+
+}
+
+.do_list {
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 35px;
+    text-align: center;
+    border-top: 1px solid black;
+
+}
+
+.text {
+    margin-right: 35px;
+}
+
+
+.content {
+    display: flex;
+    align-items: center
+}
+
+.content p {
+    margin-right: 40px;
+}
+
+.do_list_element:first-child {
+    border-top: none
+}
+
+.list_btn {
+    font-family: 'Dangrek', cursive;
+    padding: 15px;
+    border-radius: 40px;
+    border: none;
+    background: #727272;
+    transition: .8s;
+}
+
+.list_btn:hover {
+    transition: .8s;
+    background: #09bb44;
+}
+
+.list_btn_clear {
+    font-family: 'Dangrek', cursive;
+    padding: 15px;
+    border-radius: 40px;
+    border: none;
+    background: #727272;
+    transition: .8s;
+}
+
+.list_btn_clear:hover {
+    transition: .8s;
+    background: #f30404;
+}
+
+button:active {
+    transition: .1s;
+    transform: scale(0.9);
+}
+
+.entry {
+    margin-left: 35%;
+    width: 500px;
+    border: 1px solid black;
+    border-radius: 0 0 40px 40px;
+    padding: 20px;
+}
+
+.do {
+    padding-left: 20px;
+    height: 30px;
+    border-radius: 0 0 20px 20px;
+    border: none;
+    background: #818080;
+}
+
+.inval {
+    background-color: #613c3c;
+}
+
+
+
+.do::placeholder {
+    color: rgb(32, 32, 32);
+    font-family: 'Dangrek', cursive;
+}
+
+.input_btn {
+    font-family: 'Dangrek', cursive;
+    padding: 5px 20px;
+    border-radius: 40px 0 40px 0;
+    border: none;
+    background: #818080;
+    float: right;
+}
+
+img {
+    display: none;
+    width: 35px;
+    height: 35px;
+}
+
+.icon {
+    display: block;
+}
