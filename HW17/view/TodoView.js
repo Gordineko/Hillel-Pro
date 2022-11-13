@@ -4,6 +4,7 @@ class TodoView {
     BTN_DONE: "todo__btn--done",
     BTN_REMOVE: "todo__btn--remove",
     BTN_EDIT: "todo__btn--edit",
+    TODO_TEXT_SELECTOR: "todo__text",
   };
   #el = null;
   constructor(el) {
@@ -34,14 +35,78 @@ class TodoView {
       .replaceAll("{{id}}", id)
       .replaceAll("{{todoDone}}", isDone ? TodoView.CLASSES.BTN_DONE : "");
   }
-  action(handler) {
+  init(handler) {
+    const btnAddTodo = document.querySelector(".todo__btn--add-todo");
+    btnAddTodo.addEventListener("click", () => this.addTodo(handler));
+  }
+  getParent(element) {
+    return element.closest(TodoView.CLASSES.TODO_ITEM);
+  }
+  getTodoId(element) {
+    const parent = this.getParent(element);
+    return parent ? parent.dataset.id : null;
+  }
+  addTodo(handler) {
+    console.log(handler);
+    const enterInput = document.querySelector(".todo__input");
+    handler.addTodo({
+      title: enterInput.value,
+      isDone: false,
+    });
+  }
+
+  createEditField(element) {
+    const parent = this.getParent(element);
+    const todoTextSelector = parent.querySelector(
+      `.${TodoView.CLASSES.TODO_TEXT_SELECTOR}`
+    );
+    const btnEdit = parent.querySelector(`.todo__btn--edit`);
+    const input = document.createElement("input");
+    input.className = "form-control";
+    input.placeholder = todoTextSelector.textContent.trim();
+    todoTextSelector.textContent = "";
+    btnEdit.classList.remove("btn-secondary");
+    btnEdit.classList.add("btn-success");
+    btnEdit.classList.add("btn--edit-active");
+    parent.insertBefore(input, todoTextSelector);
+  }
+  saveInput(element) {
+    const parent = this.getParent(element);
+    const todoTextSelector = parent.querySelector(
+      `.${TodoView.CLASSES.TODO_TEXT_SELECTOR}`
+    );
+    const btnEdit = parent.querySelector(`.todo__btn--edit`);
+    const input = parent.querySelector(`input`);
+    const inputVal = input.value;
+    todoTextSelector.textContent = inputVal;
+    input.remove();
+    btnEdit.classList.add("btn-secondary");
+    btnEdit.classList.remove("btn-success");
+    btnEdit.classList.remove("btn--edit-active");
+    return {
+      id: parent?.dataset.id,
+      title: inputVal,
+      isDone: false,
+    };
+  }
+  actionsListTodo(handler) {
     this.#el.addEventListener("click", (event) => {
-      if (event.target.closest(TodoView.CLASSES.TODO_ITEM) === null) return;
-      if (event.target.classList.contains(TodoView.CLASSES.BTN_REMOVE)) {
-        handler("remove");
+      const target = event.target;
+      const id = this.getTodoId(target);
+      if (target.classList.contains(TodoView.CLASSES.BTN_REMOVE)) {
+        handler.removeTodo(id);
       }
-      if (event.target.classList.contains(TodoView.CLASSES.BTN_EDIT)) {
-        handler("edit");
+      if (
+        target.classList.contains(TodoView.CLASSES.BTN_EDIT) &&
+        !target.classList.contains("btn--edit-active")
+      ) {
+        this.createEditField(target);
+      } else if (
+        target.classList.contains(TodoView.CLASSES.BTN_EDIT) &&
+        target.classList.contains("btn--edit-active")
+      ) {
+        const obj = this.saveInput(target);
+        handler.editTodo(obj);
       }
     });
   }

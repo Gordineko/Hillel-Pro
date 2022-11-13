@@ -1,0 +1,47 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 10px 15px 10px;
+    border-bottom: 2px solid
+}
+
+.logo {
+    width: 30px;
+    height: 30px;
+}
+
+
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.container {
+    padding-top: 20px;
+}
+
+.btn-outline-light {
+    border: none;
+    position: relative;
+    width: 25px;
+    height: 25px;
+}
+
+.btn-outline-light:hover {
+    color: #212529;
+}
+
+.bi-x-square-fill {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: 0;
+    top: 0
+}
+
+.form-control:focus {
+    border-color: #feffff;
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+}

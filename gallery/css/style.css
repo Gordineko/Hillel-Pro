@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    padding: 30px;
+    background: #212121;
+}
+.gallery {
+    margin-bottom: 20px;
+}
+.gallery img {
+    margin: 0 auto;
+}
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
