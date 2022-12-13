@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Dangrek&display=swap');
+
+* {
+  font-family: 'Dangrek', cursive;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.contact-pre {
+  display: flex;
+  justify-content: space-between;
+  width: 1209px;
+  padding-left: 49px;
+  padding-right: 470px;
+  border-bottom: 1px solid;
+  margin-bottom: 40px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+
+}
+
+.input_colum {
+  display: flex;
+  justify-content: space-between;
+  width: 848px;
+  padding-left: 46px;
+}

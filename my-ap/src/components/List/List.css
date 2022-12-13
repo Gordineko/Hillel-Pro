@@ -1,0 +1,7 @@
+.list_container {
+    display: flex;
+    justify-content: space-between;
+    width: 1237px;
+    list-style: none;
+    padding-left: 50px;
+}
