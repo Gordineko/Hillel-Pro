@@ -1,0 +1,12 @@
+.list {
+    padding-bottom: 20px;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+}
+
+.list_monetor {
+    border-radius: 10px;
+    margin: 0 20px 10px 20px;
+    padding: 10px 22px 0 22px;
+    border: 3px solid black;
+}
