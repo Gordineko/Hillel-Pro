@@ -1,0 +1,5 @@
+.list_persones {
+    display: flex;
+    max-width: 1000px;
+    justify-content: space-between
+}

@@ -3,9 +3,11 @@ import "./Form.css";
 export default class Form extends Component {
   onFormSubmit = (e) => {
     e.preventDefault();
-    this.props.onSave({
-      title: e.target.elements.title.value,
-    });
+    
+      this.props.onSave({
+        title: e.target.elements.title.value,
+      });
+    
 
     e.target.reset();
   };
