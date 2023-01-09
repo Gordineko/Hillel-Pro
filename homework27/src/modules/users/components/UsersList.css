@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300&display=swap');
+*{
+    font-family: 'Rowdies', cursive;
+}
+.prew{
+    display: flex;
+    justify-content: space-between;
+}
+li{
+    min-width: 200px;
+    list-style: none;
+}
+.list_persones{
+    display: flex;
+    justify-content: space-between;
+}

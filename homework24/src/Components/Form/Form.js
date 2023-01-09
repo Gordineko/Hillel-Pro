@@ -5,9 +5,9 @@ function Form({ onSave }) {
     e.preventDefault();
 
     onSave({
-      name: e.target.name.value,
-      surname: e.target.name.value,
-      email: e.target.name.value,
+      userName: e.target.name.value,
+      surname: e.target.surname.value,
+      email: e.target.email.value,
     });
     e.target.reset();
   }
