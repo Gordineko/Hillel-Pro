@@ -2,13 +2,13 @@ import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, 
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import useUsersList from './hooks/useUsersList'
-
+import CircularProgress from '@mui/material/CircularProgress';
 function UsersList() {
   
   const {list,deleteUsers} = useUsersList();
-
   return (
     <TableContainer component={Paper}>
+      <CircularProgress />
       <Table  aria-label="simple table">
         <TableHead>
           <TableRow>

@@ -1,0 +1,23 @@
+.task-item{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    padding-top: 20px;
+    background: rgb(243, 243, 243);
+    border: 1px solid rgb(134, 134, 134);
+    margin-left: -1px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5px;
+}
+.done{
+    background: #69d969;
+}
+.delete-btn{
+    width: 20px;
+    height: 20px;
+    border: 2px solid;
+    border-radius: 100px;
+    padding:  3px 5px 5px 5px;
+    background: red;
+}
