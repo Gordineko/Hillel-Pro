@@ -2,13 +2,15 @@ import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, 
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import useUsersList from './hooks/useUsersList'
-import CircularProgress from '@mui/material/CircularProgress';
+
+import Loader from './Loader/Loader';
 function UsersList() {
   
   const {list,deleteUsers} = useUsersList();
+  const {loading} = useUsersList();
   return (
     <TableContainer component={Paper}>
-      <CircularProgress />
+     <Loader isLoading={loading}></Loader>
       <Table  aria-label="simple table">
         <TableHead>
           <TableRow>

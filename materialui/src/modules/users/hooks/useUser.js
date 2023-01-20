@@ -10,8 +10,9 @@ const EMPTY_USER = {
 
 export default function useUser(id) {
   const [user, setUser] = useState(EMPTY_USER);
-
+ 
   useEffect(() => {
+    
     if (isNaN(id)) {
       setUser(EMPTY_USER);
     } else {
