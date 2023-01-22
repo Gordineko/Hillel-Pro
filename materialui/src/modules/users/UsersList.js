@@ -1,9 +1,10 @@
-import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Button, ListItem, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import useUsersList from './hooks/useUsersList'
 
 import Loader from './Loader/Loader';
+import UsersListItem from './UsersListItem';
 function UsersList() {
   
   const {list,deleteUsers} = useUsersList();
@@ -22,16 +23,8 @@ function UsersList() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {list.map(item=>(
-            <TableRow key={item.id}>
-              <TableCell>{item.name}</TableCell>
-              <TableCell align="right">{item.surname}</TableCell>
-              <TableCell align="right">{item.email}</TableCell>
-              <TableCell align="right">
-               <Button variant='contained' to={item.id} component={NavLink}>Edd</Button>
-               <Button onClick={()=>deleteUsers(item.id)} variant='contained' color='error'>Dell</Button>
-                </TableCell>
-                </TableRow>
+          {list.map((item)=>(
+           <UsersListItem key={item.id} person={item}  />
           ))}
         </TableBody>
         

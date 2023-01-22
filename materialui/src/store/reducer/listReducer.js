@@ -1,4 +1,4 @@
-import { CREATE_LIST, DELETE_LIST, TOGGLE_LIST } from "../actions/list";
+import { CREATE_LIST, DELETE_LIST, TOGGLE_LIST } from "../action/list";
 
 
 const INITIAL_STATE = {
