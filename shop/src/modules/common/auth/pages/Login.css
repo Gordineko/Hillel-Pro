@@ -1,4 +1,19 @@
-.css-cuefkz-MuiContainer-root{
-    display: flex;
+
+.css-xdmu94-MuiContainer-root {
+    height: 100vh;
     text-align: center;
+    padding: 200px 50px;
+    background: radial-gradient(circle, rgba(177,175,175,1) 40%, rgba(25,118,210,1) 60%);
+
+
+}
+.css-0{
+    background: #1976d2;
+}
+
+.pass{
+    width: 300px; background: rgb(177, 175, 175);
+    justify-content: space-between;
+    display: flex;
+    margin: 0 auto;
 }
