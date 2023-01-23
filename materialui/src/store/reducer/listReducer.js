@@ -1,30 +1,31 @@
-import { CREATE_LIST, DELETE_LIST, TOGGLE_LIST } from "../action/list";
-
+import { DELETE_USER, SET_USERS, ADD_USER, SET_LOADER } from "../action/list";
 
 const INITIAL_STATE = {
-  list: [
-    { id: 1, name:'Danil', surname:'Go123213r',email:'444@gmail.com' },
-    { id: 2,  name:'DD', surname:'G11or',email:'123123123@gmail.com' },
-    { id: 3,  name:'Egor', surname:'asdasdr',email:'qwewqe@gmail.com' },
-    { id: 4,  name:'Den', surname:'Gafe',email:'123asda@gmail.com' },
-  ],
+  is_loading: false,
+  list: [],
 };
 
 export default function (state = INITIAL_STATE, { type, payload }) {
   switch (type) {
-    case  TOGGLE_LIST:
-    return {
-      ...state,
-      list: state.list.map((item) => payload !== item.id? item:{...item,isDone:!item.isDone}),
-    };
-    case DELETE_LIST:
+    case SET_LOADER:
+      return {
+        ...state,
+        isLoading: payload,
+      };
+    case DELETE_USER:
       return {
         ...state,
         list: state.list.filter((item) => payload !== item.id),
       };
-    case CREATE_LIST:
+    case ADD_USER:
       return {
-    ...state,list:[...state.list,{id :Date.now(), ...payload,}]
+        ...state,
+        list: [...state.list, payload],
+      };
+    case SET_USERS:
+      return {
+        ...state,
+        list: payload,
       };
     default:
       return state;

@@ -9,7 +9,7 @@ function Landing() {
     <div>
       {JSON.stringify(user)}
 
-      <p>{user.username}</p>
+      <p>{user.name}</p>
       <p>{user.password}</p>
 
       <NavLink to="/auth">Login</NavLink>
