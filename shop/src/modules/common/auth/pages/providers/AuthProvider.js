@@ -1,13 +1,26 @@
 import React, { useState } from "react";
 import { createContext } from "react";
+import api from "../../../../../api";
 
 export const AuthContext = createContext(null);
 
 function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
-  function login(username, password, role) {
-    setUser({ username, password, role });
+  function getUser() {
+    return api.get("auth/user").then(({ data }) => setUser(data));
+  }
+
+  function login(email, password) {
+    return api
+      .post("auth/login", {
+        login: email,
+        password,
+      })
+      .then(({ data }) => {
+        window.token = data.token;
+        return getUser();
+      });
   }
 
   function logout() {

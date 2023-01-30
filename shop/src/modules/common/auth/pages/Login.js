@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Field, Form, Formik } from "formik";
+import { Form, Formik } from "formik";
 import { AuthContext } from "./providers/AuthProvider";
 import { Navigate } from "react-router-dom";
 import * as yup from "yup";
@@ -16,24 +16,35 @@ import {
   TextField,
 } from "@mui/material";
 
-const initialValues = { name: "", password: "", role: "admin" };
+const initialValues = { email: "", password: "" };
 
 const loginValidationSchema = yup.object().shape({
-  name: yup.string().required().min(3, " min 3 characters length"),
-  password: yup.string().required().min(8, " min 8 characters length"),
+  email: yup
+    .string()
+    .required()
+    .email("not email")
+    .min(3, " min 3 characters length"),
+  password: yup.string().required().min(6, " min 6 characters length"),
 });
 function Login() {
   const auth = useContext(AuthContext);
 
-  function onSubmit(values) {
-    auth.login(values.name, values.password, values.role);
+  function onSubmit(values, meta) {
+    console.log(values, meta);
+    auth.login(values.email, values.password).catch((error) => {
+      if (error.response.status >= 400 && error.response.status < 500) {
+        meta.setErrors({
+          password: error.response.data.error,
+        });
+      }
+    });
   }
 
   return (
     <Box>
       <Container maxWidth="md">
         <CompassCalibrationIcon />
-        <h1>Sing in</h1>
+        <h1>Sign in</h1>
         <Formik
           initialValues={initialValues}
           onSubmit={onSubmit}
@@ -54,19 +65,18 @@ function Login() {
             console.log(props, values) || (
               <Form>
                 {auth.isAuthorized && <Navigate to="/" />}
-
                 <TextField
-                  name="name"
+                  name="email"
                   type="text"
-                  label="Name"
+                  label="email"
                   variant="standard"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.name}
-                  error={touched.name && errors.name && "name"}
-                  helperText={touched.name && errors.name && "Incorrect entry."}
+                  value={values.email}
+                  error={touched.email && errors.email && "not email"}
+                  helperText={touched.email && errors.email && "not email"}
+                  autoComplete="email"
                 />
-
                 <br />
                 <TextField
                   name="password"
@@ -83,13 +93,6 @@ function Login() {
                 />
 
                 <br />
-                <Field
-                  name="role"
-                  component={TextField}
-                  label="Role"
-                  variant="standard"
-                />
-                <br />
                 <br />
                 <br />
                 <Box className="pass">
@@ -97,14 +100,17 @@ function Login() {
                     control={<Checkbox defaultChecked />}
                     label="Saved"
                   />
-                  <Link component="button" variant="body2">
+                  <Link component="button" variant="body2" type="link" href="#">
                     forgot your password?
                   </Link>
                 </Box>
                 <br />
                 <br />
-
-                <Button variant="contained" startIcon={<SendIcon />}>
+                <Button
+                  variant="contained"
+                  type="submit"
+                  startIcon={<SendIcon />}
+                >
                   Login
                 </Button>
               </Form>

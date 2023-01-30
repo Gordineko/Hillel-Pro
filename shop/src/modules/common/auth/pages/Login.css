@@ -12,7 +12,8 @@
 }
 
 .pass{
-    width: 300px; background: rgb(177, 175, 175);
+    width: 300px;
+     background: rgb(177, 175, 175);
     justify-content: space-between;
     display: flex;
     margin: 0 auto;
